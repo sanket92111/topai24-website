@@ -19,9 +19,19 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
   
+  const handleClick = () => {
+    if (project.link.startsWith('/projects/') && !project.link.includes('.html')) {
+      // For new projects, navigate to dedicated pages
+      window.location.href = project.link;
+    } else {
+      // For existing projects, open in new tab
+      window.open(project.link, '_blank');
+    }
+  };
+  
   return (
-    <a href={project.link} target='_blank'>
-      <div 
+    <div 
+      onClick={handleClick}
       className="group relative rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -75,16 +85,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
         
         {/* Action button */}
-        <a 
-          href={project.link} target='_blank'
+        <div
           className={`inline-flex items-center text-white font-medium transition-all duration-300 ${
             isHovered ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
           }`}
         >
           View Project <ChevronRight size={16} className="ml-1" />
-        </a>
+        </div>
       </div>
     </div>
-    </a>
   );
 };

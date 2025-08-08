@@ -77,32 +77,41 @@ const Testimonials: React.FC = () => {
   };
   
   return (
-    <section id="testimonials" className="py-20 bg-gray-50">
+    <section id="testimonials" className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-primary-400 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-secondary-400 rounded-full blur-3xl"></div>
+      </div>
+      
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-sm uppercase font-bold tracking-wider text-primary-600 mb-3">Client Testimonials</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h3>
-          <p className="max-w-2xl mx-auto text-gray-600">
+          <h2 className="text-sm uppercase font-bold tracking-wider text-primary-600 mb-3 animate-fade-in">Client Testimonials</h2>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">What Our Clients Say</h3>
+          <p className="max-w-2xl mx-auto text-gray-600 animate-slide-up">
             Don't just take our word for it. Here's what our clients have to say about working with us.
           </p>
         </div>
         
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto animate-slide-up">
           <div className="overflow-hidden">
             <div 
-              className="flex transition-transform duration-500 ease-in-out" 
+              className="flex transition-transform duration-700 ease-in-out" 
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="min-w-full px-4">
-                  <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg">
+                  <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden">
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-50/20 to-secondary-50/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+                    
                     <div className="flex flex-col md:flex-row md:items-center">
-                      <div className="mb-6 md:mb-0 md:mr-8">
-                        <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
+                      <div className="mb-6 md:mb-0 md:mr-8 relative z-10">
+                        <div className="w-20 h-20 rounded-full overflow-hidden mb-4 ring-4 ring-primary-100 hover:ring-primary-200 transition-all duration-300">
                           <img 
                             src={testimonial.image} 
                             alt={testimonial.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                           />
                         </div>
                         <div>
@@ -111,19 +120,19 @@ const Testimonials: React.FC = () => {
                               <Star 
                                 key={i}
                                 size={16} 
-                                className={i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"} 
+                                className={i < testimonial.rating ? "text-yellow-400 fill-yellow-400 hover:scale-125 transition-transform duration-200" : "text-gray-300"} 
                               />
                             ))}
                           </div>
                         </div>
                       </div>
                       
-                      <div>
-                        <blockquote className="text-gray-700 text-lg italic mb-6">
+                      <div className="relative z-10">
+                        <blockquote className="text-gray-700 text-lg italic mb-6 hover:text-gray-800 transition-colors duration-300">
                           "{testimonial.quote}"
                         </blockquote>
-                        <div className="font-medium text-gray-900">{testimonial.name}</div>
-                        <div className="text-sm text-gray-500">{testimonial.role}</div>
+                        <div className="font-semibold text-gray-900 hover:text-primary-700 transition-colors duration-300">{testimonial.name}</div>
+                        <div className="text-sm text-gray-500 hover:text-gray-600 transition-colors duration-300">{testimonial.role}</div>
                       </div>
                     </div>
                   </div>
@@ -135,14 +144,14 @@ const Testimonials: React.FC = () => {
           {/* Navigation buttons */}
           <button 
             onClick={handlePrev}
-            className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 bg-white shadow-md rounded-full p-2 md:p-3 text-gray-700 hover:text-primary-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-opacity-50 z-10"
+            className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 bg-white shadow-lg hover:shadow-xl rounded-full p-3 md:p-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-opacity-50 z-10 hover:scale-110"
           >
             <ChevronLeft size={24} />
           </button>
           
           <button 
             onClick={handleNext}
-            className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2 bg-white shadow-md rounded-full p-2 md:p-3 text-gray-700 hover:text-primary-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-opacity-50 z-10"
+            className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2 bg-white shadow-lg hover:shadow-xl rounded-full p-3 md:p-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-opacity-50 z-10 hover:scale-110"
           >
             <ChevronRight size={24} />
           </button>
@@ -153,10 +162,10 @@ const Testimonials: React.FC = () => {
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
                   currentIndex === index 
-                    ? 'bg-primary-600 w-6' 
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    ? 'bg-primary-600 w-8 shadow-lg' 
+                    : 'bg-gray-300 hover:bg-primary-400'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

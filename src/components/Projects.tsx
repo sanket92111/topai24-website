@@ -36,6 +36,36 @@ const projectsData = [
   },
   {
     id: 4,
+    title: "Velvo Restaurant Website",
+    description: "Velvo is a premium Indian restaurant website that provides a complete digital experience for customers with sophisticated design, smooth animations, and online ordering.",
+    image: "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    category: "Web App",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    featured: true,
+    link:"/projects/velvo"
+  },
+  {
+    id: 5,
+    title: "Apex Financials – Professional CA Website",
+    description: "A comprehensive, production-ready website for Chartered Accountant services built with modern web technologies and interactive features.",
+    image: "https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    category: "Web App",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
+    featured: true,
+    link:"/projects/apex-financials"
+  },
+  {
+    id: 6,
+    title: "Flamora",
+    description: "Flamora is more than just a landing page — it's a testament to how modern web technologies can accelerate product presentations for solo builders.",
+    image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    category: "Web App",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    featured: true,
+    link:"/projects/flamora"
+  },
+  {
+    id: 7,
     title: "Gumbo - Capture. Share. Relive",
     description: "It’s a Gumbo blends a delicious stew of shared memories. We invite you to pour in joyful photos and videos, creating a heartwarming feast of shared experiences",
     image: "https://images.pexels.com/photos/5081917/pexels-photo-5081917.jpeg?auto=compress&cs=tinysrgb&w=1200",
@@ -45,7 +75,7 @@ const projectsData = [
     link:"/projects/Gumbo.html"
   },
   {
-    id: 5,
+    id: 8,
     title: "Willow - E-commerce Platform",
     description: "A comprehensive online shopping platform with inventory management and analytics.",
     image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200",
@@ -55,7 +85,7 @@ const projectsData = [
     link:"/projects/Willow.html"
   },
   {
-    id: 6,
+    id: 9,
     title: "Simplify - Project Management",
     description: "A streamlined project management tool for teams with task tracking and collaboration features.",
     image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200",
@@ -70,7 +100,7 @@ const categories = ["All", "Mobile App", "Web App", "E-commerce", "Enterprise"];
 
 const Projects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [visibleProjects, setVisibleProjects] = useState(3);
+  const [visibleProjects, setVisibleProjects] = useState(6);
 
   const filteredProjects = activeCategory === "All" 
     ? projectsData 
@@ -102,7 +132,7 @@ const Projects: React.FC = () => {
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                 onClick={() => {
                   setActiveCategory(category);
-                  setVisibleProjects(3);
+                  setVisibleProjects(6);
                 }}
               >
                 {category}

@@ -44,18 +44,18 @@ const servicesData = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4 md:px-6">
       
         <div className="text-center mb-16">
-          <h2 className="text-sm uppercase font-bold tracking-wider text-primary-600 mb-3">Our Services</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">Comprehensive Digital Solutions</h3>
-          <p className="max-w-2xl mx-auto text-gray-600">
+          <h2 className="text-sm uppercase font-bold tracking-wider text-primary-600 mb-3 animate-fade-in">Our Services</h2>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">Comprehensive Digital Solutions</h3>
+          <p className="max-w-2xl mx-auto text-gray-600 animate-slide-up">
             We offer end-to-end services to design, develop, and deploy applications that meet your business objectives.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up">
           {servicesData.map((service, index) => (
             <ServiceCard
               key={index}
