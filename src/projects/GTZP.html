@@ -1,0 +1,697 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>GTZP</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1f9eb79c-9fa4-8091-9883-e168c5cefdf3" class="page sans"><header><img class="page-cover-image" src="GTZP%201f9eb79c9fa480919883e168c5cefdf3/21-dayy-Recovered1-2048x403.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">💲</span></div><h1 class="page-title">GTZP</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><h3 id="1fceb79c-9fa4-804f-8d4e-f2714d4a6bf9" class="">The Problem:</h3><hr id="1fceb79c-9fa4-8079-b805-ffc0f01110d6"/><p id="1fceb79c-9fa4-8021-bf70-c99c13f33e3f" class="">🌍 Thousands of NPOs(Non Profit Organisations) are doing incredible work, but most people don’t know about them.<br/>😕 Discovering trustworthy nonprofits, understanding their impact, and finding ways to support them can feel overwhelming and disconnected.<br/><br/></p><h3 id="1fceb79c-9fa4-80ed-b240-c3fecf297967" class="">The Solution – GTZP:</h3><hr id="1fceb79c-9fa4-8071-b3a2-fc6cfef4ddca"/><p id="1fceb79c-9fa4-8014-886a-e1c818686e4c" class="">📲 GTZP(Greater Than Zero Percent) is a fun, interactive app that helps you discover and engage with nonprofits through short videos tailored to your interests.<br/>➡️ Swipe right to explore more from the same NPO, or ⬇️ swipe down to discover new ones.<br/>💬 Like, comment, and share videos to show support—and when you’re ready to make a difference:<br/>💳 Donate securely (one-time or recurring) and<br/>📈 Track all your giving in one place—amounts, frequency, and impact.<br/></p><p id="1fceb79c-9fa4-805f-bd06-d815ea4e48f1" class=""><strong>Support causes you care about.</strong></p><p id="1fceb79c-9fa4-801b-81d7-ff724faaaee3" class="">
+</p><h3 id="1f9eb79c-9fa4-8016-a563-fbbb2b725131" class="">Key Features</h3><hr id="1f9eb79c-9fa4-80f5-a8c2-e331334c2d0f"/><p id="1fceb79c-9fa4-80ca-816e-ec820da63a47" class="">🎥 <strong>Interest-Based Video Feed</strong><div class="indented"><p id="1fceb79c-9fa4-806d-ad3d-cddd4d3d2a37" class="">Users receive a personalized stream of short videos from NPOs based on the interests they select during sign-up—enhancing engagement and relevance.</p><p id="1fceb79c-9fa4-80d0-b0ac-d6a98aa7950f" class="">
+</p></div></p><p id="1fceb79c-9fa4-80b7-8678-d9542144ed05" class="">🎯 <strong>Smart Swipe Navigation</strong><div class="indented"><p id="1fceb79c-9fa4-8042-805e-e33861d04829" class="">Intuitive swipe gestures:</p><p id="1fceb79c-9fa4-808e-ae14-d2f6453a3120" class="">➡️ Swipe right for more content from the same NPO</p><p id="1fceb79c-9fa4-807b-89cf-f915df3b653e" class="">⬇️ Swipe down to discover new organizations</p><p id="1fceb79c-9fa4-800c-aaba-ef887d2c3ce5" class="">This keeps discovery fun and fast-paced.</p><p id="1fceb79c-9fa4-8064-8400-c8f65daa6f1c" class="">
+</p></div></p><p id="1fceb79c-9fa4-8062-bd82-da2d9cfee81b" class="">💳 <strong>Integrated Donations &amp; Impact Tracking</strong><div class="indented"><p id="1fceb79c-9fa4-8016-bc63-c19bf6d0135f" class="">Secure, seamless donations (one-time or recurring) via Stripe, with a dashboard that lets users view total donated, frequency, and organization-wise impact.</p><p id="1fceb79c-9fa4-8094-a899-dcd6c451f9f5" class="">
+</p></div></p><p id="1fceb79c-9fa4-804d-89c1-cd214ee92860" class="">💬 <strong>Social Engagement Features</strong><div class="indented"><p id="1fceb79c-9fa4-80ae-ac34-d30dee28ccca" class="">Built-in tools like <strong>likes</strong>, <strong>comments</strong>, and <strong>sharing</strong> to encourage interaction, advocacy, and community growth around causes users care about.</p><p id="1fceb79c-9fa4-80e8-a46d-df2a2d7047f8" class="">
+</p></div></p><h3 id="1f9eb79c-9fa4-805e-81ef-f4ebc3e26967" class="">Application Overview</h3><hr id="1f9eb79c-9fa4-801c-86b1-d9691b525bc9"/><div id="1f9eb79c-9fa4-80e7-8c81-fce57aab5928" class="column-list"><div id="1f9eb79c-9fa4-80c4-a2ba-f72615cf9ccc" style="width:100%" class="column"><figure id="1f9eb79c-9fa4-8084-abea-f763edd23c23" class="image"><a href="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image.png"><img style="width:205.97500610351562px" src="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image.png"/></a></figure><p id="1f9eb79c-9fa4-807f-af1d-e350cf94f16f" class=""><strong>Sign-Up Screen</strong></p><p id="1f9eb79c-9fa4-8045-8e77-f4e5373bd269" class="">During sign-up, users select their interests and preferences to personalize their NPO video feed, ensuring content that aligns with what they care about most.</p><p id="1fceb79c-9fa4-80d4-84ff-eceb01209396" class="">
+</p></div><div id="1f9eb79c-9fa4-80b0-a166-e409ff8e8729" style="width:95.83333333333333%" class="column"><figure id="1f9eb79c-9fa4-80f2-980f-cf780260935a" class="image"><a href="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%201.png"><img style="width:211.8625030517578px" src="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%201.png"/></a></figure><p id="1f9eb79c-9fa4-801d-a551-c57a730ae246" class=""><strong>Home Feed</strong></p><p id="1f9eb79c-9fa4-8015-9e9f-dafc5160b460" class="">Discover engaging video content from NPOs, tailored to your interests. Swipe right for more from the same organization or swipe down to explore others.</p><p id="1fceb79c-9fa4-803b-927a-c707a0ebbc58" class="">
+</p></div><div id="1f9eb79c-9fa4-80d3-ba78-cc576fb92e35" style="width:95.83333333333333%" class="column"><figure id="1f9eb79c-9fa4-80d7-9f38-d113bb03cf27" class="image"><a href="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%202.png"><img style="width:203.03750610351562px" src="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%202.png"/></a></figure><p id="1f9eb79c-9fa4-8020-a25f-ffa6db399312" class=""><strong>NPO Profile</strong></p><p id="1f9eb79c-9fa4-8030-bf80-e69c5ad1c9c7" class="">Get to know each organization through detailed profiles featuring their mission, impact metrics, and key information—all in one place.</p><p id="1fceb79c-9fa4-8088-a5eb-db2fb63ed082" class="">
+</p></div></div><div id="1f9eb79c-9fa4-80fb-be2f-d46b020e0128" class="column-list"><div id="1f9eb79c-9fa4-808a-955d-fb2771744310" style="width:100%" class="column"><figure id="1f9eb79c-9fa4-8070-b22a-cd5844954cdf" class="image"><a href="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%203.png"><img style="width:930px" src="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%203.png"/></a></figure><p id="1f9eb79c-9fa4-8087-84c9-d04b67f5be06" class=""><strong>Donation Flow</strong></p><p id="1f9eb79c-9fa4-80ff-a9c1-e6b99b7f2c76" class="">A smooth, secure donation experience with flexible options for one-time or recurring contributions—making it easy to support the causes you care about.</p><p id="1f9eb79c-9fa4-807e-8d75-eb26c5988510" class="">
+</p></div><div id="1f9eb79c-9fa4-806f-a88c-f0d44191970f" style="width:100%" class="column"><figure id="1f9eb79c-9fa4-80e6-8c93-d00f6cd51a35" class="image"><a href="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%204.png"><img style="width:205.9875030517578px" src="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%204.png"/></a></figure><p id="1f9eb79c-9fa4-807c-972e-f485cbe31203" class=""><strong>Transaction History</strong></p><p id="1f9eb79c-9fa4-80ca-936f-dd182a74abb7" class="">View a detailed record of your donations, including dates, amounts, and recipient organizations—along with insights to track your impact over time.</p><p id="1f9eb79c-9fa4-80dc-a259-c6c41d20c3d2" class="">
+</p></div><div id="1f9eb79c-9fa4-8083-b37a-df21bd2348c2" style="width:100%" class="column"><figure id="1f9eb79c-9fa4-80fc-a8a6-fcd22fa71a48" class="image"><a href="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%205.png"><img style="width:205.97500610351562px" src="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%205.png"/></a></figure><p id="1f9eb79c-9fa4-8004-a746-d26ec3365dfa" class=""><strong>Social Features</strong></p><p id="1f9eb79c-9fa4-8090-b4b2-d15288d9fead" class="">Engage with content through likes, comments, and sharing—fostering a sense of community and spreading awareness beyond the app.</p><p id="1fceb79c-9fa4-8067-a770-e0e3dfb9db31" class="">
+</p></div></div><h3 id="1f9eb79c-9fa4-8016-bcff-c158b53d15d3" class="">Architecture</h3><hr id="1f9eb79c-9fa4-8098-8afc-ff420ff4730e"/><figure id="1f9eb79c-9fa4-80ca-9141-c29d14c62828" class="image"><a href="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%206.png"><img style="width:480px" src="GTZP%201f9eb79c9fa480919883e168c5cefdf3/image%206.png"/></a></figure><p id="1fceb79c-9fa4-8085-b137-ccfdc380ac79" class="">
+</p><h3 id="1f9eb79c-9fa4-80ed-b3c2-cfb443cfa5a4" class=""><strong>Technologies Used</strong></h3><hr id="1f9eb79c-9fa4-8099-88f1-d7508974612a"/><p id="1fbeb79c-9fa4-808c-b0a5-d31837b41b7e" class=""><strong>1. Flutter</strong></p><p id="1fbeb79c-9fa4-80ca-870a-cd5c8515121d" class="">We use Flutter to build a beautiful, consistent, and high-performance mobile app for both Android and iOS. By using a single codebase, we ensure faster development cycles, lower maintenance overhead, and a consistent user experience across platforms.</p><p id="1fbeb79c-9fa4-80da-9eb5-f77525b18f93" class=""><strong>2. AWS S3 (Simple Storage Service)</strong></p><p id="1fbeb79c-9fa4-808a-8b33-e3af49b43530" class="">All media assets, including NPO videos, images, and thumbnails, are stored on Amazon S3. This allows for secure, scalable, and cost-effective media storage with high availability, ensuring fast video delivery to users.</p><p id="1fbeb79c-9fa4-8074-8d2b-fa60e70aa078" class=""><strong>3. AWS API Gateway</strong></p><p id="1fbeb79c-9fa4-802f-9d55-e8479f20613c" class="">API Gateway acts as the entry point for all client-server interactions. It securely routes requests from the app to backend services, ensuring smooth communication between the front end and the serverless backend.</p><p id="1fbeb79c-9fa4-8007-af41-d951edbd6a4b" class=""><strong>4. AWS Lambda</strong></p><p id="1fbeb79c-9fa4-804f-a13a-f7787bd695ce" class="">Our backend logic is powered by AWS Lambda, a serverless computing service. This eliminates the need for managing servers and allows GTZP to scale on demand based on user activity—whether it&#x27;s a few users or thousands.</p><p id="1fbeb79c-9fa4-8014-80eb-e882bcb8beda" class=""><strong>5. Stripe</strong></p><p id="1fbeb79c-9fa4-802c-8bc6-d73d18313d15" class="">Stripe is integrated to handle donations. It enables secure, flexible, and globally trusted payment processing—supporting both one-time and recurring donations via credit/debit cards.</p><p id="1fbeb79c-9fa4-80ba-9f5e-d135c31d082c" class=""><strong>6. CloudFront (Content Delivery Network)</strong></p><p id="1fbeb79c-9fa4-8055-952b-cc629b49496c" class="">To ensure that video content and other media load quickly no matter where the user is located, we use Amazon CloudFront to deliver content through edge locations globally. This improves speed and reliability.</p><p id="1fbeb79c-9fa4-8011-8465-c02e11d1f3f4" class=""><strong>7. Webhooks</strong></p><p id="1fbeb79c-9fa4-8055-96b4-f0de936354a9" class="">We use webhooks for real-time event communication—such as receiving instant payment status updates from Stripe or notifying the system of a completed transaction. This keeps the app responsive and up-to-date.</p><p id="1fbeb79c-9fa4-8021-a8bc-c976c61cfa43" class=""><strong>8. Admin Portal</strong></p><p id="1fbeb79c-9fa4-80d2-8118-e0bc621bb9c1" class="">The GTZP admin portal is a web-based tool used by internal teams and NPOs to manage content, review analytics, approve donations, and maintain platform integrity. It provides complete backend visibility and control over the platform’s operations.</p><p id="1fceb79c-9fa4-809b-9e86-ee9ef620232e" class="">
+</p><h3 id="1fceb79c-9fa4-80f1-aace-ffd74886150b" class="">Let’s Build Something Great Together</h3><hr id="1fceb79c-9fa4-80ac-8cbc-f1e51d1817a7"/><p id="1fceb79c-9fa4-80c9-838c-cc056f3775b7" class="">Have an idea or project in mind? We are just a message away.</p><figure id="1fceb79c-9fa4-8123-a761-e08ba5cefa86"><a href="https://www.topai24.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">TopAi24 | Professional App Development Agency</div><div class="bookmark-description">TopAi24 is a premier app development agency specializing in mobile app development, web applications, and custom software solutions.</div></div><div class="bookmark-href"><img src="https://www.topai24.com/assets/transparent_logo-DaVBW4gb.svg" class="icon bookmark-icon"/>https://www.topai24.com/</div></div></a></figure><p id="1fceb79c-9fa4-8074-98ef-d7177f1afb4e" class=""><strong>Let’s turn your vision into reality.</strong></p><p id="1fceb79c-9fa4-8018-842c-c08dfb27287d" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,699 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Gumbo</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1f9eb79c-9fa4-8086-b32b-e264bf280fa4" class="page sans"><header><img class="page-cover-image" src="Gumbo%201f9eb79c9fa48086b32be264bf280fa4/gumbo-Copy-11-2048x403.jpg" style="object-position:center 45.769999999999996%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📸</span></div><h1 class="page-title">Gumbo</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><h3 id="1fceb79c-9fa4-80b8-8506-e050dc90c17b" class="">The Problem:</h3><hr id="1fceb79c-9fa4-80ba-a250-d4b6136ba4e9"/><p id="1fceb79c-9fa4-80c0-95a4-ed2228715a97" class="">At events, everyone captures memories on their own phones—but those photos and videos rarely get shared or organized.<br/>📸 Great moments are scattered across devices.<br/>📤 Sharing them later is messy, inconvenient, or forgotten.<br/>😩 Hosts and guests miss out on reliving the full experience together.<br/></p><p id="1fceb79c-9fa4-8018-a07c-e11748b8270f" class="">
+</p><h3 id="1fceb79c-9fa4-80d7-bd3e-d71585d8511f" class="">The Solution – Gumbo:</h3><hr id="1fceb79c-9fa4-80d0-8010-d81c30a458cb"/><p id="1fceb79c-9fa4-80e3-a3ec-c56da53d6c46" class="">🎉 <strong>Gumbo</strong> is a collaborative event memory app that brings all your guests’ photos and videos into one shared memory wall.</p><p id="1fceb79c-9fa4-8010-8483-ca0cb69398a7" class="">📱 Hosts create an event and share a code. Guests use the code to upload, view, and download media in real-time.</p><p id="1fceb79c-9fa4-80c0-86df-e1d369d33ae6" class="">💾 With editing tools and download options, it’s the easiest way to turn moments into memories—together.</p><p id="1fceb79c-9fa4-80f9-86c6-fd23ac7886a7" class="">
+</p><p id="1fceb79c-9fa4-8027-a59c-ee3c354f60f9" class="">
+</p><figure id="1f9eb79c-9fa4-8055-a2a8-f26a2699ca89"><div class="source">
+	 <video width="100%" height="400" controls="controls autoplay">
+    <source src="/projects/Gumbo%201f9eb79c9fa48086b32be264bf280fa4/Gumbo_Mobile_App.mp4" type="video/mp4" />
+  </video>
+</div></figure><p id="1fceb79c-9fa4-801c-824f-d4e9f0e63b98" class="">
+</p><h3 id="1fbeb79c-9fa4-808e-a22e-f5ac0be91c3d" class="">Key Features</h3><hr id="1fbeb79c-9fa4-8035-afd3-d665cc7001a8"/><ul id="1fbeb79c-9fa4-801f-a00a-da93c31f209f" class="bulleted-list"><li style="list-style-type:disc">🥳 <strong>Event-Based Media Walls</strong><p id="1fbeb79c-9fa4-8095-8f69-d287d267129b" class="">Create or join events using a unique invite code and instantly access a shared memory wall where all guests can upload photos and videos in real-time.</p><p id="1fceb79c-9fa4-80cb-814a-c4ed46e98bc5" class="">
+</p></li></ul><ul id="1fbeb79c-9fa4-8010-88e1-dbc8aa66482f" class="bulleted-list"><li style="list-style-type:disc">🎨 <strong>In-App Media Editing Tools</strong><p id="1fbeb79c-9fa4-80ec-8d64-f7c0b5382349" class="">Apply filters, crop images, and trim videos directly within the app—no need for external editors. Make every memory look just right before sharing.</p><p id="1fceb79c-9fa4-80d7-bdd2-edeb576036e4" class="">
+</p></li></ul><ul id="1fbeb79c-9fa4-8056-9e8c-e2a3a888200f" class="bulleted-list"><li style="list-style-type:disc">🔐 <strong>Private &amp; Controlled Access</strong><p id="1fbeb79c-9fa4-801f-a20d-fab696db0b6e" class="">Only invited guests with the event code can view or contribute to an event’s memory wall—keeping event content secure and private.</p><p id="1fceb79c-9fa4-8090-8c04-fbd7d774bf68" class="">
+</p></li></ul><ul id="1fbeb79c-9fa4-804b-8ed7-e2bbabfbfbe0" class="bulleted-list"><li style="list-style-type:disc">⬇️ <strong>Media Download &amp; Sharing Options</strong><p id="1fbeb79c-9fa4-807c-822a-f7999e6a2f3f" class="">Host-controlled download permissions allow guests to save their favorite moments and easily share them across other platforms.</p></li></ul><p id="1fceb79c-9fa4-8061-840a-d19f885ad775" class="">
+</p><h3 id="1f9eb79c-9fa4-814c-ac94-c617e81f895f" class="">Application Overview</h3><hr id="1f9eb79c-9fa4-8160-b305-f61c00701303"/><div id="1f9eb79c-9fa4-81f5-8ee0-c2fe8ade76b6" class="column-list"><div id="1f9eb79c-9fa4-819d-9f6a-da5a007983a7" style="width:100%" class="column"><p id="1f9eb79c-9fa4-813d-a970-eaa4f403401c" class=""><strong>Create an Event</strong></p><figure id="1f9eb79c-9fa4-8155-a9d0-cfcbc00afd6f" class="image"><a href="Gumbo%201f9eb79c9fa48086b32be264bf280fa4/IMG_3098.png"><img style="width:211.8828125px" src="Gumbo%201f9eb79c9fa48086b32be264bf280fa4/IMG_3098.png"/></a></figure><p id="1f9eb79c-9fa4-81dd-8a68-f36e2511b0d7" class="">Follow our easy step-by-step process to create your event. Start by clicking ‘Create an Event’, fill out all the necessary details, and generate a unique access code. Share this code with your guests for an exclusive invite to your memory wall.</p></div><div id="1f9eb79c-9fa4-815a-bee0-f9bc4d53ec60" style="width:95.83333333333333%" class="column"><p id="1faeb79c-9fa4-80b1-b5c0-f0329d90f0c5" class="">
+</p><p id="1f9eb79c-9fa4-8151-b8b5-ebda7828feea" class=""><strong>Upload Content</strong></p><figure id="1f9eb79c-9fa4-81d1-9ec3-f12354179af2" class="image"><a href="Gumbo%201f9eb79c9fa48086b32be264bf280fa4/IMG_5698-scaled.jpeg"><img style="width:203.0546875px" src="Gumbo%201f9eb79c9fa48086b32be264bf280fa4/IMG_5698-scaled.jpeg"/></a></figure><p id="1f9eb79c-9fa4-81de-a084-e12ba109c180" class="">Capture the essence of your event by sharing photos and videos. Simply click ‘Upload’, select your media, and let the sharing begin! Watch as your memory wall fills with the vibrant colors and emotions of your event.</p></div><div id="1f9eb79c-9fa4-8114-96ca-dd3736cdeff3" style="width:95.83333333333333%" class="column"><p id="1faeb79c-9fa4-8017-bab2-da7aa5db50cc" class="">
+</p><p id="1f9eb79c-9fa4-811c-b672-e6bc5a0abe28" class=""><strong>View Shared Content</strong></p><figure id="1f9eb79c-9fa4-815d-bdb9-caaa5a1f63af" class="image"><a href="Gumbo%201f9eb79c9fa48086b32be264bf280fa4/IMG_3099.png"><img style="width:203.0546875px" src="Gumbo%201f9eb79c9fa48086b32be264bf280fa4/IMG_3099.png"/></a></figure><p id="1f9eb79c-9fa4-81e5-bae3-c3c12471b43c" class="">Once your event is over, the fun doesn’t have to end! Revisit your memory wall anytime to relive those precious moments. Engage with the content, leave comments, and keep the memories alive.</p></div></div><p id="1f9eb79c-9fa4-8186-ae71-d85c0aabcbc9" class="">
+</p><h3 id="1faeb79c-9fa4-809d-970e-f81dd80da800" class="">Architecture</h3><hr id="1faeb79c-9fa4-808a-871a-c520665dc22d"/><figure id="1fceb79c-9fa4-803a-89b7-c016e530226f" class="image"><a href="Gumbo%201f9eb79c9fa48086b32be264bf280fa4/image.png"><img style="width:660px" src="Gumbo%201f9eb79c9fa48086b32be264bf280fa4/image.png"/></a></figure><h3 id="1f9eb79c-9fa4-81ea-b172-e67c9f8b6237" class=""><strong>Technologies Used</strong></h3><hr id="1f9eb79c-9fa4-8198-9177-e1577faee199"/><p id="1fceb79c-9fa4-807a-9cd2-edacfceee482" class="">
+</p><hr id="1fceb79c-9fa4-8076-98b4-c393e9016f83"/><p id="1fceb79c-9fa4-80c8-8814-c911ce05a9d5" class=""><strong>1. Flutter</strong></p><p id="1fceb79c-9fa4-806c-8d0a-c85f524cc999" class="">We use Flutter to build a beautiful, consistent, and high-performance mobile app for both Android and iOS. By using a single codebase, we ensure faster development cycles, lower maintenance overhead, and a consistent user experience across platforms.</p><p id="1fceb79c-9fa4-807a-8cd7-e8fc096c56bc" class=""><strong>2. AWS API Gateway</strong></p><p id="1fceb79c-9fa4-8065-a4bd-ea1d0e2238d9" class="">API Gateway acts as the entry point for all client-server interactions. It securely routes requests from the app to backend services, ensuring smooth communication between the front end and the serverless backend.</p><p id="1fceb79c-9fa4-80ff-a3fb-d288938fb356" class=""><strong>3. AWS Lambda</strong></p><p id="1fceb79c-9fa4-80ba-918f-e9b38be73b59" class="">Our backend logic is powered by AWS Lambda, a serverless computing service. This eliminates the need for managing servers and allows Gumbo to scale on demand based on user activity. This is majorly used for generating Payment URL for Stripe.</p><p id="1fceb79c-9fa4-80e5-b12e-d03c0581b557" class=""><strong>4. Stripe</strong></p><p id="1fceb79c-9fa4-8086-9d29-dbc2c4560744" class="">Stripe is integrated to handle donations. It enables secure, flexible, and globally trusted payment processing—supporting both one-time and recurring donations via credit/debit cards.</p><p id="1fceb79c-9fa4-808d-b299-c30a3657340e" class=""><strong>5. Webhooks</strong></p><p id="1fceb79c-9fa4-8091-be4b-ed4ca586705f" class="">We use webhooks for real-time event communication—such as receiving instant payment status updates from Stripe or notifying the system of a completed transaction. This keeps the app responsive and up-to-date.</p><p id="1fceb79c-9fa4-8045-9561-d0042cc3742a" class=""><strong>6. Admin Portal</strong></p><p id="1fceb79c-9fa4-80e9-ba40-f0dd2e5a0884" class="">The Gumbo admin portal is a web-based tool used by internal teams to manage content, review analytics, provide transaction details, and maintain platform integrity. It provides complete backend visibility and control over the platform’s operations.</p><p id="1fceb79c-9fa4-80a0-9c4c-cd297ff118a8" class=""><strong>7. Firebase</strong></p><p id="1fceb79c-9fa4-80c0-84db-f4db74a98230" class="">Firebase is integrated into our application to manage user authentication securely and efficiently. It also powers real-time notifications, allowing users to receive instant updates and alerts, thereby enhancing the overall responsiveness and interactivity of the app.</p><h3 id="1fceb79c-9fa4-801e-8f77-f90c2067068c" class="">Let’s Build Something Great Together</h3><hr id="1fceb79c-9fa4-80e1-b9ab-f051fc079ced"/><p id="1fceb79c-9fa4-807b-a498-fc6a3bcdb4ba" class="">Have an idea or project in mind? We are just a message away.</p><figure id="1fceb79c-9fa4-8027-8e53-cb3469bfcaa8"><a href="https://www.topai24.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">TopAi24 | Professional App Development Agency</div><div class="bookmark-description">TopAi24 is a premier app development agency specializing in mobile app development, web applications, and custom software solutions.</div></div><div class="bookmark-href"><img src="https://www.topai24.com/assets/transparent_logo-DaVBW4gb.svg" class="icon bookmark-icon"/>https://www.topai24.com/</div></div></a></figure><p id="1fceb79c-9fa4-8055-a783-e42085b27af7" class=""><strong>Let’s turn your vision into reality.</strong></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
