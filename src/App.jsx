@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
+import Blogs from './pages/Blogs'; // Import the new Blogs component
 import './App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blogs" element={<Blogs />} /> {/* Add the new route */}
           </Routes>
         </motion.main>
         <Footer />

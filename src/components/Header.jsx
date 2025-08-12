@@ -20,6 +20,7 @@ const Header = () => {
     { name: 'Home', path: '/' },
     { name: 'Projects', path: '/projects' },
     { name: 'Testimonials', path: '/testimonials' },
+    { name: 'Blogs', path: '/blogs' }, // Add the new item here
     { name: 'Contact', path: '/contact' }
   ];
 
@@ -32,8 +33,8 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-6 py-3"> {/* Adjusted to py-3 */}
-        <div className="flex items-center justify-between h-14"> {/* Added fixed height */}
+      <div className="container mx-auto px-6 py-3">
+        <div className="flex items-center justify-between h-14">
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-lg">T</span>
@@ -41,7 +42,6 @@ const Header = () => {
             <span className="text-2xl font-bold text-gray-900">TopAi24</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -62,7 +62,6 @@ const Header = () => {
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2 text-gray-900 hover:text-blue-600 transition-colors duration-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -71,7 +70,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <motion.nav
             className="md:hidden bg-white/95 backdrop-blur-md rounded-lg shadow-lg px-6 py-4 mt-2"
