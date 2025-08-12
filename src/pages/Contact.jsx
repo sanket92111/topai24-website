@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, CheckCircle, Sparkles, Clock, Users, Award } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -49,6 +50,12 @@ const Contact = () => {
   ];
 
   return (
+    <>
+      <SEOHead 
+        title="Contact Us - TopAi24 | Get Your App Development Quote Today"
+        description="Ready to start your project? Contact TopAi24 for expert app development services. Free consultation, 24-hour response time. Located in Mumbai, India."
+        keywords="contact app developer, mobile app development quote, web development consultation, TopAi24 contact, app development Mumbai"
+      />
     <div className="min-h-screen pt-32 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
@@ -509,6 +516,7 @@ const Contact = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

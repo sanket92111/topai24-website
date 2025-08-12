@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink, Sparkles, Zap, Star, Eye } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 import taskoraBanner from '../projects/Taskora/Taskora_banner.jpg';
 import fitnessBanner from '../projects/Fitness Application/fitness_banner.png';
 import jobAiBanner from '../projects/Job Ai/aijob_banner.png';
@@ -165,6 +166,12 @@ const Projects = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
+    <>
+      <SEOHead 
+        title="Our Projects - TopAi24 Portfolio | Mobile Apps & Web Development"
+        description="Explore our portfolio of successful mobile apps and web applications. From e-commerce platforms to AI-powered solutions, see how we've helped 500+ clients achieve their goals."
+        keywords="mobile app portfolio, web development projects, React Native apps, Flutter applications, AI integration projects, Mumbai app development"
+      />
     <div className="min-h-screen pt-24 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
@@ -512,6 +519,7 @@ const Projects = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

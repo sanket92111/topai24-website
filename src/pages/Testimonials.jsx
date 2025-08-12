@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Quote, Play, Pause, Users, Award, TrendingUp } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -143,6 +144,12 @@ const Testimonials = () => {
   };
 
   return (
+    <>
+      <SEOHead 
+        title="Client Testimonials - TopAi24 | 500+ Happy Clients & Success Stories"
+        description="Read what our clients say about TopAi24's app development services. 500+ successful projects, 98% success rate, and testimonials from satisfied clients across industries."
+        keywords="client testimonials, app development reviews, TopAi24 reviews, mobile app development feedback, web development testimonials Mumbai"
+      />
     <div className="min-h-screen pt-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -556,6 +563,7 @@ const Testimonials = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

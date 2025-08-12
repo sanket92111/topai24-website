@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, CheckCircle, Star, Users, Award, TrendingUp, ChevronLeft, ChevronRight, Sparkles, Zap, Rocket, Globe, Brain, Shield } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 
 const Home = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -123,6 +124,12 @@ const Home = () => {
   }, []);
 
   return (
+    <>
+      <SEOHead 
+        title="TopAi24 - Leading App Development Agency in Mumbai, India"
+        description="Transform your business with cutting-edge mobile apps and web solutions. Expert React Native, Flutter, and AI integration services. 500+ happy clients, 98% success rate."
+        keywords="app development agency Mumbai, mobile app development India, React Native developers, Flutter development, AI integration, web development Mumbai, digital transformation"
+      />
     <div className="min-h-screen relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
@@ -715,6 +722,7 @@ const Home = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
