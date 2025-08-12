@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Heart, MessageCircle, Bookmark, ChevronRight } from 'lucide-react';
-import SEOHead from '../components/SEOHead';
-import StructuredData, { getStructuredData } from '../components/StructuredData';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -126,19 +124,6 @@ const BlogPost = () => {
   }
 
   return (
-    <>
-      {post && (
-        <>
-          <SEOHead 
-            title={`${post.title} | TopAi24 Blog`}
-            description={post.excerpt}
-            keywords={post.tags.join(', ')}
-            image={post.image}
-            type="article"
-          />
-          <StructuredData data={getStructuredData('article', post)} />
-        </>
-      )}
     <div className="min-h-screen pt-24 bg-white">
       {/* Back Button */}
       <div className="container mx-auto px-6 py-8">
@@ -325,8 +310,9 @@ const BlogPost = () => {
         </div>
       </section>
     </div>
-    </>
   );
 };
 
 export default BlogPost;
+
+export default BlogPost
