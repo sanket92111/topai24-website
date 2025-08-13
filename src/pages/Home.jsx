@@ -218,46 +218,52 @@ const Home = () => {
                 That Transform Businesses
               </motion.h1>
               
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-xl text-gray-600 mb-8 leading-relaxed"
-              >
-                From mobile apps to web platforms, we deliver cutting-edge digital solutions that drive growth, 
-                enhance user experience, and give your business a competitive edge in the digital landscape.
-              </motion.p>
+          <motion.p
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.4 }}
+  className="text-xl text-gray-600 mb-8 leading-relaxed"
+>
+  From mobile apps to web platforms, we deliver cutting-edge digital solutions that drive growth, 
+  enhance user experience, and give your business a competitive edge in the digital landscape.
+</motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4"
-              >
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link
-                    to="/contact"
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold flex items-center justify-center group shadow-lg hover:shadow-xl"
-                  >
-                    Start Your Project
-                    <motion.div
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      <ArrowRight className="ml-2 w-5 h-5" />
-                    </motion.div>
-                  </Link>
-                </motion.div>
-                <motion.button 
-                  whileHover={{ scale: 1.05, borderColor: '#3b82f6' }}
-                  whileTap={{ scale: 0.95 }}
-                  className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-semibold flex items-center justify-center group backdrop-blur-sm"
-                >
-                  <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                  View Our Work
-                </motion.button>
-              </motion.div>
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+  className="flex flex-col sm:flex-row gap-4"
+>
+  {/* Start Your Project */}
+  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+    <Link
+      to="/contact"
+      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold flex items-center justify-center group shadow-lg hover:shadow-xl"
+    >
+      Start Your Project
+      <motion.div
+        animate={{ x: [0, 5, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity }}
+      >
+        <ArrowRight className="ml-2 w-5 h-5" />
+      </motion.div>
+    </Link>
+  </motion.div>
 
+  {/* View Our Work */}
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Link
+          to="/projects" // <-- change this path to wherever your "Our Work" page is
+          className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-semibold flex items-center justify-center group backdrop-blur-sm"
+        >
+          <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+          View Our Work
+        </Link>
+      </motion.div>
+    </motion.div>
+
+
+           
               {/* Trust Indicators */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}

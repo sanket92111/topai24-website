@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink, Sparkles, Zap, Star, Eye } from 'lucide-react';
-import taskoraBanner from '../projects/Taskora/Taskora_banner.jpg';
-import fitnessBanner from '../projects/Fitness Application/fitness_banner.png';
-import jobAiBanner from '../projects/Job Ai/aijob_banner.png';
-import fashionSocialBanner from '../projects/Style Connect/fashion_social_banner.png';
-import eventraBanner from '../projects/eventra/eventra_banner.png';
-import wellnessBanner from '../projects/Mental Wellness/wellness_banner.png';
+import taskoraBanner from '/projects/Taskora/Taskora_banner.jpg';
+import fitnessBanner from '/projects/Fitness Application/fitness_banner.png';
+import jobAiBanner from '/projects/Job Ai/aijob_banner.png';
+import fashionSocialBanner from '/projects/Style Connect/fashion_social_banner.png';
+import eventraBanner from '/projects/eventra/eventra_banner.png';
+import wellnessBanner from '/projects/Mental Wellness/wellness_banner.png';
 
 const Projects = () => {
   const projects = [
@@ -163,6 +163,22 @@ const Projects = () => {
   const filteredProjects = activeCategory === 'All' 
     ? projects 
     : projects.filter(project => project.category === activeCategory);
+
+const handleProjectClick = (projectId) => {
+  const customUrls = {
+    'velvo-restaurant': 'https://velvo.app.topai24.com/',
+    'apex-financials': 'https://apex.app.topai24.com/',
+    'flamora': 'https://flamora.app.topai24.com/'
+  };
+
+  if (customUrls[projectId]) {
+    window.open(customUrls[projectId], '_blank');
+  } else {
+    window.open(`/projects/${projectId}.html`, '_blank');
+  }
+};
+
+
 
   return (
     <div className="min-h-screen pt-24 relative overflow-hidden">
@@ -327,7 +343,8 @@ const Projects = () => {
                   rotateY: 5,
                   z: 50
                 }}
-                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                onClick={() => handleProjectClick(project.id)}
+                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
               >
                 {/* Animated Border */}
                 <motion.div
@@ -374,8 +391,7 @@ const Projects = () => {
                       whileHover={{ scale: 1, rotate: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <motion.button
-                        onClick={() => window.open(`/src/projects/${project.id}.html`, '_blank')}
+                      <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         className="bg-white/90 backdrop-blur-sm text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-white transition-all duration-300 flex items-center shadow-xl"
@@ -383,7 +399,7 @@ const Projects = () => {
                         <Eye className="mr-2 w-4 h-4" />
                         View Details
                         <ArrowRight className="ml-2 w-4 h-4" />
-                      </motion.button>
+                      </motion.div>
                     </motion.div>
                   </motion.div>
                 </div>
@@ -423,13 +439,9 @@ const Projects = () => {
                     ))}
                   </div>
                   
-                  <motion.button
+                  <motion.div
                     whileHover={{ scale: 1.05, x: 5 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.open(`/src/projects/${project.id}.html`, '_blank');
-                    }}
                     className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-all duration-300 group-hover:translate-x-2 transform"
                   >
                     View Project
@@ -439,7 +451,7 @@ const Projects = () => {
                     >
                       <ExternalLink className="ml-2 w-4 h-4" />
                     </motion.div>
-                  </motion.button>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
