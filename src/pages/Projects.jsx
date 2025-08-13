@@ -174,7 +174,7 @@ const handleProjectClick = (projectId) => {
   if (customUrls[projectId]) {
     window.open(customUrls[projectId], '_blank');
   } else {
-    window.open(`/projects/${projectId}.html`, '_blank');
+    window.location.href = `/projects/${projectId}`;
   }
 };
 

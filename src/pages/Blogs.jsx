@@ -202,10 +202,7 @@ const Blogs = () => {
                   <motion.button
                     whileHover={{ scale: 1.05, x: 5 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.open(`/src/blogs/${blog.id}.html`, '_blank');
-                    }}
+                    onClick={() => window.location.href = `/blogs/${blog.id}`}
                     className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-all duration-300 group-hover:translate-x-2 transform"
                   >
                     Read More
